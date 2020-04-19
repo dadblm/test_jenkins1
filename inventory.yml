@@ -1,0 +1,11 @@
+---
+all:
+  children:
+    all_clients:
+      hosts:
+        client1:
+          ansible_host: esx-client1
+        client2:
+          ansible_host: esx-client2
+        client3:
+          ansible_host: esx-client3
