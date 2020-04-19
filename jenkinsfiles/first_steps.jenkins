@@ -23,7 +23,7 @@ pipeline {
         }
         stage("Ping step") {
             steps {
-                sh 'ansible-playbook /var/lib/jenkins/var/lib/jenkins/ansible1/ping.playbook'
+                sh 'ansible-playbook /var/lib/jenkins/ansible1/ping.playbook'
             }
         }
     }
