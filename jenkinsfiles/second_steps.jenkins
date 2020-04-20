@@ -10,24 +10,26 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
         timestamps()
     }
-    stage("Ping step") {
-        steps {
-            ansiColor('xterm') {
-                ansiblePlaybook(
+    stages {
+        stage("Ping step") {
+            steps {
+                ansiColor('xterm') {
+                    ansiblePlaybook(
 //                            installation: 'ansible26',
-                        playbook: "${WORKSPACE}/ping.playbook",
-                        inventory: "${WORKSPACE}/inventory/inventory.yml",
+                            playbook: "${WORKSPACE}/ping.playbook",
+                            inventory: "${WORKSPACE}/inventory/inventory.yml",
 //                            vaultCredentialsId: vault_master_passwd_file_id,
-                        disableHostKeyChecking: true,
-                        limit: hosts_group,
-                        colorized: true,
+                            disableHostKeyChecking: true,
+                            limit: hosts_group,
+                            colorized: true,
 //                            extraVars: [
 //                                    certificates_decryption_file: "${WORKSPACE}/decryption_password_file.txt",
 //                                    playbook_mode: playbook_mode,
 //                                    distrib_nexus_folder_name: distrib_nexus_folder_name
 //                            ],
 //                            extras: "--forks ${ansible_forks}"
-                )
+                    )
+                }
             }
         }
     }
