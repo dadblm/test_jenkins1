@@ -16,8 +16,8 @@ pipeline {
                 ansiColor('xterm') {
                     ansiblePlaybook(
 //                            installation: 'ansible26',
-                            playbook: "${WORKSPACE}/ping.playbook",
-                            inventory: "${WORKSPACE}/inventory/inventory.yml",
+                            playbook: "${env.WORKSPACE}/ping.playbook",
+                            inventory: "${env.WORKSPACE}/inventory/inventory.yml",
 //                            vaultCredentialsId: vault_master_passwd_file_id,
                             disableHostKeyChecking: true,
                             limit: hosts_group,
